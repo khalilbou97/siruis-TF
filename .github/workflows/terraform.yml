@@ -67,7 +67,7 @@ jobs:
           repo: siruis-HR
           github_token: ${{ secrets.G_ACCESS_TOKEN }}
           workflow_file_name: main.yml
-          ref: master
+          ref: dep-auto
       - name: Deploy back
         run: |
           echo "Deploy back"
@@ -86,8 +86,8 @@ jobs:
           owner: khalilbou97
           repo: Siruis-RH-Front
           github_token: ${{ secrets.G_ACCESS_TOKEN }}
-          workflow_file_name: main_siruisfr.yml
-          ref: main
+          workflow_file_name: main.yml
+          ref: dep-auto
       - name: Deploy front
         run: |
           echo "Deploy front"
