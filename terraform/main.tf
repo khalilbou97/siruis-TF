@@ -1,4 +1,5 @@
 
+
 data "http" "myip" {
   url = "http://ipv4.icanhazip.com"
 }
@@ -57,35 +58,6 @@ resource "azurerm_linux_web_app" "keycloak" {
     "PROXY_ADDRESS_FORWARDING" = "true"
     }
     
-  
-}
-
-resource "azurerm_service_plan" "front" {
-  name                = "front-plan"
-  resource_group_name = azurerm_resource_group.rg.name
-  location            = "francecentral"
-  os_type             = "Linux"
-  sku_name            = "B1"
-}
-
-resource "azurerm_linux_web_app" "front" {
-  name                = "frontpfe97-app-service-auto"
-  resource_group_name = azurerm_resource_group.rg.name
-  location            = azurerm_service_plan.back.location
-  service_plan_id     = azurerm_service_plan.back.id
-
-  site_config {
-    app_command_line = "pm2 serve /home/site/wwwroot --no-daemon --spa"
-    application_stack {
-      node_version = "16-lts"
-
-    }
-    cors  {
-      allowed_origins     = ["https://backpfe97-app-service-auto.azurewebsites.net","https://keycloackpfe97-app-service-auto.azurewebsites.net"]
-      support_credentials = true
-    }
-
-  }
   
 }
 
