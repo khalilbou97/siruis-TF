@@ -72,8 +72,8 @@ resource "azurerm_service_plan" "front" {
 resource "azurerm_linux_web_app" "front" {
   name                = "frontpfe97-app-service-auto"
   resource_group_name = azurerm_resource_group.rg.name
-  location            = azurerm_service_plan.back.location
-  service_plan_id     = azurerm_service_plan.back.id
+  location            = azurerm_service_plan.front.location
+  service_plan_id     = azurerm_service_plan.front.id
 
   site_config {
     app_command_line = "pm2 serve /home/site/wwwroot --no-daemon --spa"
