@@ -1,4 +1,5 @@
 
+
 data "http" "myip" {
   url = "http://ipv4.icanhazip.com"
 }
@@ -31,7 +32,7 @@ resource "azurerm_linux_web_app" "back" {
       java_version="11-java11"
         }
     cors  {
-      allowed_origins     = ["https://frontpfe97.azurewebsites.net"]
+      allowed_origins     = ["https://frontpfe97-app-service-auto.azurewebsites.net"]
       support_credentials = true
     }
   }
@@ -69,7 +70,7 @@ resource "azurerm_service_plan" "front" {
 }
 
 resource "azurerm_linux_web_app" "front" {
-  name                = "frontpfe97"
+  name                = "frontpfe97-app-service-auto"
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_service_plan.front.location
   service_plan_id     = azurerm_service_plan.front.id
@@ -98,7 +99,7 @@ resource "azurerm_dns_cname_record" "example" {
   zone_name           = azurerm_dns_zone.dnsFront.name
   resource_group_name = azurerm_resource_group.rg.name
   ttl                 = 3600
-  record             = "frontpfe97.azurewebsites.net"
+  record             = "frontpfe97-app-service-auto.azurewebsites.net"
 }
 resource "azurerm_app_service_custom_hostname_binding" "example" {
   hostname            = "www.siruisrh.me"
