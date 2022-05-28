@@ -1,3 +1,5 @@
+
+
 data "http" "myip" {
   url = "http://ipv4.icanhazip.com"
 }
@@ -40,8 +42,8 @@ resource "azurerm_linux_web_app" "back" {
 resource "azurerm_linux_web_app" "keycloak" {
   name                = "keycloackpfe97cicd"
   resource_group_name = azurerm_resource_group.rg.name
-  location            = azurerm_service_plan.back.location
-  service_plan_id     = azurerm_service_plan.back.id
+  location            = azurerm_service_plan.front.location
+  service_plan_id     = azurerm_service_plan.front.id
 
   site_config {
     application_stack {
@@ -70,13 +72,13 @@ resource "azurerm_service_plan" "front" {
 resource "azurerm_linux_web_app" "front" {
   name                = "frontpfe97cicd"
   resource_group_name = azurerm_resource_group.rg.name
-  location            = azurerm_service_plan.front.location
-  service_plan_id     = azurerm_service_plan.front.id
+  location            = azurerm_service_plan.back.location
+  service_plan_id     = azurerm_service_plan.back.id
 
   site_config {
     app_command_line = "pm2 serve /home/site/wwwroot --no-daemon --spa"
     application_stack {
-      node_version = "16-lts"
+      node_version = "14-lts"
 
     }
     cors  {
