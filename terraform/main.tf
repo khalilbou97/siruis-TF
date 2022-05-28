@@ -32,7 +32,7 @@ resource "azurerm_linux_web_app" "back" {
       java_version="11-java11"
         }
     cors  {
-      allowed_origins     = ["https://frontpfe97cicd.azurewebsites.net"]
+      allowed_origins     = ["https://frontpfe97cicd.azurewebsites.net","https://www.siruisrh.me"]
       support_credentials = true
     }
   }
