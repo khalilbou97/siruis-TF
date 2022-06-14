@@ -30,7 +30,7 @@ jobs:
         with:
          tf_actions_version: 1.1.8
          tf_actions_subcommand: 'init'
-         tf_actions_working_dir: "./Terraform"
+         tf_actions_working_dir: "./terraform"
       - name: 'Terraform Validate'
         uses: hashicorp/terraform-github-actions@master
         with:
@@ -42,14 +42,14 @@ jobs:
         with:
          tf_actions_version: 1.1.8
          tf_actions_subcommand: 'plan'
-         tf_actions_working_dir: "./Terraform"
+         tf_actions_working_dir: "./terraform"
       - name: 'Terraform Apply'
         if: github.ref == 'refs/heads/main'
         uses: hashicorp/terraform-github-actions@master
         with:
          tf_actions_version: 1.1.8
          tf_actions_subcommand: 'apply'
-         tf_actions_working_dir: "./Terraform"
+         tf_actions_working_dir: "./terraform"
   sonarback:
     name: test backend
     runs-on: ubuntu-latest
