@@ -125,7 +125,7 @@ jobs:
           repo: Siruis-RH-Front
           github_token: ${{ secrets.G_ACCESS_TOKEN }}
           workflow_file_name: main_siruisfr.yml
-          ref: master
+          ref: main
       - name: Deploy front
         run: |
           echo "Deploy front"
