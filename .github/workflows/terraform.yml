@@ -62,7 +62,7 @@ jobs:
      - uses: convictional/trigger-workflow-and-wait@v1.6.3
        with:
           owner: khalilbou97
-          repo: backendpfe
+          repo: siruis-HR
           github_token: ${{ secrets.G_ACCESS_TOKEN }}
           workflow_file_name: build.yml
           ref: master
@@ -104,7 +104,7 @@ jobs:
           owner: khalilbou97
           repo: siruis-HR
           github_token: ${{ secrets.G_ACCESS_TOKEN }}
-          workflow_file_name: master_backendpfesiriusrh.yml
+          workflow_file_name: main-master.yml
           ref: master
       - name: Deploy back
         run: |
@@ -124,7 +124,7 @@ jobs:
           owner: khalil97
           repo: front
           github_token: ${{ secrets.G_ACCESS_TOKEN }}
-          workflow_file_name: master_frontendsiriusrh.yml
+          workflow_file_name: main_siruisfr.yml
           ref: master
       - name: Deploy front
         run: |
