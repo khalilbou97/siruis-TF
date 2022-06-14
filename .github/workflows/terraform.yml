@@ -121,8 +121,8 @@ jobs:
           sleep 10s
       - uses: convictional/trigger-workflow-and-wait@v1.6.3
         with:
-          owner: khalil97
-          repo: front
+          owner: khalilbou97
+          repo: Siruis-RH-Front
           github_token: ${{ secrets.G_ACCESS_TOKEN }}
           workflow_file_name: main_siruisfr.yml
           ref: master
